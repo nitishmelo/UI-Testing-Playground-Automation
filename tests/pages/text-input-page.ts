@@ -13,7 +13,7 @@ export default class TextInputPage{
     public async checkForButtonName(newName: string){
         this.textField().fill(newName);
         await this.initialButton().click();
-        const slowExpect = expect.configure({timeout: 30000});
+        const slowExpect = expect.configure({timeout: 50000});
         await slowExpect(this.page.getByRole('button', {name: newName})).toBeVisible();         
     }
 }

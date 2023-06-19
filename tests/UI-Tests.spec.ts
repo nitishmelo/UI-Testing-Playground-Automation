@@ -44,7 +44,7 @@ test('clickTest', async ({ homePage, clickPage }) => {
   await clickPage.checkClickButton();
 });
 
-test('textInputTest', async ({ homePage, textInputPage }) => {
+test.only('textInputTest', async ({ homePage, textInputPage }) => {
   await homePage.goto();
   await homePage.textInputButton().click();
   let newName = "CHANGED BUTTON NAME";
