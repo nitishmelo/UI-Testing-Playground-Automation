@@ -17,7 +17,7 @@ test('HiddenLayersTest', async ({ homePage, hiddenLayersPage }) => {
   await homePage.goto();
   await homePage.hiddenLayersButton().click();
   await hiddenLayersPage.clickGreenButton();
-  expect(hiddenLayersPage.clickGreenButton()).rejects.toThrow();
+  await expect(hiddenLayersPage.clickGreenButton()).rejects.toThrow();
 });
 
 test('loadDelayTest', async ({ homePage, loadDelayPage }) => {
@@ -30,4 +30,35 @@ test('ajaxPageTest', async ({ homePage, ajaxButtonPage }) => {
   await homePage.goto();
   await homePage.ajaxDataButton().click();
   await ajaxButtonPage.checkAjaxText();
+});
+
+test('clientSideDelayTest', async ({ homePage, clientSideDelayPage }) => {
+  await homePage.goto();
+  await homePage.clientSideDelayButton().click();
+  await clientSideDelayPage.checkClientSideText();
+});
+
+test('clickTest', async ({ homePage, clickPage }) => {
+  await homePage.goto();
+  await homePage.clickButton().click();
+  await clickPage.checkClickButton();
+});
+
+test('textInputTest', async ({ homePage, textInputPage }) => {
+  await homePage.goto();
+  await homePage.textInputButton().click();
+  let newName = "CHANGED BUTTON NAME";
+  await textInputPage.checkForButtonName(newName);
+});
+
+test('scrollBarsTest', async ({ homePage, scrollBarsPage }) => {
+  await homePage.goto();
+  await homePage.scrollBarsButton().click();
+  await scrollBarsPage.clickScrollBarsButton();
+});
+
+test('dynamicTableTest', async ({ homePage, dynamicTablePage }) => {
+  await homePage.goto();
+  await homePage.dynamicTableButton().click();
+  await dynamicTablePage.retrieveChromeCPUData();
 });

@@ -9,8 +9,11 @@ export default class ClassAttributePage {
     button = () => this.page.locator('.btn-primary');
 
     public async testButton(){
-        await this.button().click();
-        this.page.on('dialog', dialog => console.log(dialog.message()));
-        await this.page.getByText('OK').click();
+        this.page.once('dialog', dialog => {
+            console.log(`Dialog message: ${dialog.message()}`);
+            dialog.dismiss().catch(() => {});
+          });
+          await this.page.pause();
+          await this.button().click();
     }
 }

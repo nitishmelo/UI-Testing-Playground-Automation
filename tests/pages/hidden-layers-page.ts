@@ -6,7 +6,7 @@ export default class HiddenLayersPage {
         this.page = page;
     }
 
-    button = () => this.page.locator('.btn-success');
+    button = () => this.page.getByRole('button', {name: "Button"});
 
     public async clickGreenButton(){
         await this.button().click();

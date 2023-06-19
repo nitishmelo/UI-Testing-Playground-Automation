@@ -11,6 +11,7 @@ export default class AjaxButtonPage{
 
     public async checkAjaxText(){
         await this.ajaxButton().click();
-        await this.page.getByText('Data loaded with AJAX get request.').click();           
+        const slowExpect = expect.configure({timeout: 30000});
+        await slowExpect(this.page.getByText('Data loaded with AJAX get request.')).toBeVisible();           
     }
 }
