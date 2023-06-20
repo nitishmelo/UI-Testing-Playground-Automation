@@ -10,11 +10,14 @@ import ClickPage from '../pages/click-page';
 import TextInputPage from '../pages/text-input-page';
 import ScrollBarsPage from '../pages/scroll-bars-page';
 import DynamicTablePage from '../pages/dynamic-table-page';
+import VerifyTextPage from '../pages/verify-text-page';
+import ProgressBarPage from '../pages/progress-bar.page';
 
 export const test = base.extend<{homePage: HomePage; dynamicIDPage: DynamicIDPage; classAttributePage: ClassAttributePage;
 hiddenLayersPage: HiddenLayersPage; loadDelayPage: LoadDelayPage; ajaxButtonPage: AjaxButtonPage;
 clientSideDelayPage: ClientSideDelayPage; clickPage: ClickPage; textInputPage: TextInputPage;
-scrollBarsPage: ScrollBarsPage; dynamicTablePage: DynamicTablePage }>
+scrollBarsPage: ScrollBarsPage; dynamicTablePage: DynamicTablePage; verifyTextPage: VerifyTextPage;
+progressBarPage: ProgressBarPage }>
 ({
     homePage: async({page}, use) => {
         await use(new HomePage(page));
@@ -48,5 +51,11 @@ scrollBarsPage: ScrollBarsPage; dynamicTablePage: DynamicTablePage }>
     },
     dynamicTablePage: async({page}, use) => {
         await use(new DynamicTablePage(page));
+    },
+    verifyTextPage: async({page}, use) => {
+        await use(new VerifyTextPage(page));
+    },
+    progressBarPage: async({page}, use) => {
+        await use(new ProgressBarPage(page));
     },
 })

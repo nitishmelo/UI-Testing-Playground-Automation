@@ -56,3 +56,13 @@ test('dynamicTableTest', async ({ homePage, dynamicTablePage }) => {
   await homePage.dynamicTableButton().click();
   await dynamicTablePage.retrieveChromeCPUData();
 });
+
+test('verifyTextTest', async ({ homePage, verifyTextPage }) => {
+  await homePage.verifyTextButton().click();
+  await verifyTextPage.findElementWithText();
+});
+
+test('progressBarTest', async ({ homePage, progressBarPage }) => {
+  await homePage.progressBarButton().click();
+  await progressBarPage.StopAt75();
+});
