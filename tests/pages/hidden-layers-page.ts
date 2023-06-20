@@ -9,6 +9,7 @@ export default class HiddenLayersPage {
     button = () => this.page.getByRole('button', {name: "Button"});
 
     public async clickGreenButton(){
+        await this.page.waitForTimeout(3000);
         await this.button().click();
     }
 }

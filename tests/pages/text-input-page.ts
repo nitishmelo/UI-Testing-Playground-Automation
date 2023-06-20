@@ -11,9 +11,9 @@ export default class TextInputPage{
     textField = () => this.page.getByPlaceholder('MyButton');
 
     public async checkForButtonName(newName: string){
-        this.textField().fill(newName);
+        await this.page.waitForTimeout(3000);
+        await this.textField().fill(newName);
         await this.initialButton().click();
-        const slowExpect = expect.configure({timeout: 50000});
-        await slowExpect(this.page.getByRole('button', {name: newName})).toBeVisible();         
+        await expect(this.page.getByRole('button', {name: newName})).toBeVisible();         
     }
 }

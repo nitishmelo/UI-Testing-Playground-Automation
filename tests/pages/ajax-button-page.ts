@@ -10,6 +10,7 @@ export default class AjaxButtonPage{
     ajaxButton = () => this.page.getByRole('button', {name: 'Button Triggering AJAX Request'});
 
     public async checkAjaxText(){
+        await this.page.waitForTimeout(3000);
         await this.ajaxButton().click();
         const slowExpect = expect.configure({timeout: 30000});
         await slowExpect(this.page.getByText('Data loaded with AJAX get request.')).toBeVisible();           
