@@ -11,7 +11,8 @@ export default class TextInputPage{
     textField = () => this.page.getByPlaceholder('MyButton');
 
     public async checkForButtonName(newName: string){
-        await this.page.waitForTimeout(3000);
+        //await this.page.waitForTimeout(3000);
+        await this.page.waitForLoadState();
         await this.textField().fill(newName);
         await this.initialButton().click();
         await expect(this.page.getByRole('button', {name: newName})).toBeVisible();         

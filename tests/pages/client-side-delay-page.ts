@@ -10,7 +10,8 @@ export default class ClientSideDelayPage{
     clientSideLogicButton = () => this.page.getByRole('button', {name: 'Button Triggering Client Side Logic'});
 
     public async checkClientSideText(){
-        await this.page.waitForTimeout(3000);
+        await this.page.waitForLoadState();
+        //await this.page.waitForTimeout(3000);
         await this.clientSideLogicButton().click();
         const slowExpect = expect.configure({timeout: 30000});
         await slowExpect(this.page.getByText('Data calculated on the client side.')).toBeVisible();           
