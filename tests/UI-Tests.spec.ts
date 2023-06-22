@@ -66,3 +66,33 @@ test('progressBarTest', async ({ homePage, progressBarPage }) => {
   await homePage.progressBarButton().click();
   await progressBarPage.StopAt75();
 });
+
+test('visibilityTest', async ({ homePage, visibilityPage }) => {
+  await homePage.visibilityButton().click();
+  await visibilityPage.checkButtons();
+});
+
+test('sampleAppTest', async ({ homePage, sampleAppPage }) => {
+  await homePage.sampleAppButton().click();
+  await sampleAppPage.logInCheck("Lure");
+});
+
+test('mouseOverTest', async ({ homePage, mouseOverPage }) => {
+  await homePage.mouseOverButton().click();
+  await mouseOverPage.checkClickCount();
+});
+
+test('nonBreakingSpaceTest', async ({ homePage, nonBreakingSpacePage }) => {
+  await homePage.nonBreakingSpaceButton().click();
+  await nonBreakingSpacePage.findButton();
+});
+
+test('overlappedTest', async ({ homePage, overlappedPage }) => {
+  await homePage.overlappedElementButton().click();
+  await overlappedPage.scrollAndEnterText();
+});
+
+test.skip('shadowDOMTest', async ({ homePage, shadowDOMPage }) => {
+  await homePage.shadowDomButton().click();
+  await shadowDOMPage.CompareInputAndClipBoard();
+});

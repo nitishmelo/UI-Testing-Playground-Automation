@@ -12,12 +12,20 @@ import ScrollBarsPage from '../pages/scroll-bars-page';
 import DynamicTablePage from '../pages/dynamic-table-page';
 import VerifyTextPage from '../pages/verify-text-page';
 import ProgressBarPage from '../pages/progress-bar.page';
+import VisibilityPage from '../pages/visibility-page';
+import SampleAppPage from '../pages/sample-app-page';
+import MouseOverPage from '../pages/mouse-over-page';
+import NonBreakingSpacePage from '../pages/non-breaking-space-page';
+import OverLappedPage from '../pages/overlapped-element-page';
+import ShadowDOMPage from '../pages/shadow-dom-page';
 
 export const test = base.extend<{homePage: HomePage; dynamicIDPage: DynamicIDPage; classAttributePage: ClassAttributePage;
 hiddenLayersPage: HiddenLayersPage; loadDelayPage: LoadDelayPage; ajaxButtonPage: AjaxButtonPage;
 clientSideDelayPage: ClientSideDelayPage; clickPage: ClickPage; textInputPage: TextInputPage;
 scrollBarsPage: ScrollBarsPage; dynamicTablePage: DynamicTablePage; verifyTextPage: VerifyTextPage;
-progressBarPage: ProgressBarPage }>
+progressBarPage: ProgressBarPage; visibilityPage: VisibilityPage; sampleAppPage: SampleAppPage;
+mouseOverPage: MouseOverPage; nonBreakingSpacePage: NonBreakingSpacePage; overlappedPage: OverLappedPage;
+shadowDOMPage: ShadowDOMPage }>
 ({
     homePage: async({page}, use) => {
         await use(new HomePage(page));
@@ -57,5 +65,23 @@ progressBarPage: ProgressBarPage }>
     },
     progressBarPage: async({page}, use) => {
         await use(new ProgressBarPage(page));
+    },
+    visibilityPage: async({page}, use) => {
+        await use(new VisibilityPage(page));
+    },
+    sampleAppPage: async({page}, use) => {
+        await use(new SampleAppPage(page));
+    },
+    mouseOverPage: async({page}, use) => {
+        await use(new MouseOverPage(page));
+    },
+    nonBreakingSpacePage: async({page}, use) => {
+        await use(new NonBreakingSpacePage(page));
+    },
+    overlappedPage: async({page}, use) => {
+        await use(new OverLappedPage(page));
+    },
+    shadowDOMPage: async({page}, use) => {
+        await use(new ShadowDOMPage(page));
     },
 })
